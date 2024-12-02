@@ -18,11 +18,11 @@ public class FileProcesor implements IFileProcesor {
         if (input == null) {
             return input;
         }
-
-        return input.chars()
-                .filter(a -> "AaEeIiOoUu".indexOf(a) == -1)
-                .mapToObj(a -> String.valueOf((char) a))
-                .collect(Collectors.joining());
+        
+        String resultado = new String();
+        resultado = input.replaceAll("[AaEeIiOoUu]", "");
+       
+        return resultado;
     }
 
     public void escribirAFile(String filePath, String content) throws Exception {
